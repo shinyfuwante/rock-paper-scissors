@@ -47,7 +47,7 @@ function game() {
     let losses = 0;
     for (let i = 0; i < 5; i++) {
         let playerSelection = window.prompt("Enter your choice:", "Rock, Paper, or Scissors");
-        let result = playRound(playerSelection, "rock");
+        let result = playRound(playerSelection, computerPlay());
         if (result == "Win!") {
             wins++;
         }  else if (result == "Lose!") losses++;
