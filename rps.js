@@ -24,19 +24,19 @@ function playRound(playerSelection, computerSelection) {
     if (playerChoice == "Error" || computerChoice == "Error") return "Faulty game state";
     switch (playerChoice) {
         case ROCK:
-            if (computerSelection == playerChoice) return "Tie!";
-            if (computerSelection == PAPER) return "Lose!";
-            if (computerSelection == SCISSORS) return "Win!";
+            if (computerChoice == playerChoice) return "Tie!";
+            if (computerChoice == PAPER) return "Lose!";
+            if (computerChoice == SCISSORS) return "Win!";
             break;
         case PAPER:
-            if (computerSelection == playerChoice) return "Tie!";
-            if (computerSelection == SCISSORS) return "Lose!";
-            if (computerSelection == ROCK) return "Win!";
+            if (computerChoice == playerChoice) return "Tie!";
+            if (computerChoice == SCISSORS) return "Lose!";
+            if (computerChoice == ROCK) return "Win!";
             break;
         case SCISSORS:
-            if (computerSelection == playerChoice) return "Tie!";
-            if (computerSelection == ROCK) return "Lose!";
-            if (computerSelection == PAPER) return "Win!";
+            if (computerChoice == playerChoice) return "Tie!";
+            if (computerChoice == ROCK) return "Lose!";
+            if (computerChoice == PAPER) return "Win!";
             break;
     }
 
@@ -46,16 +46,15 @@ function game() {
     let wins = 0;
     let losses = 0;
     for (let i = 0; i < 5; i++) {
-        let playerSelection = "rock";
-        let result = playRound(playerSelection, computerPlay());
+        let playerSelection = window.prompt("Enter your choice:", "Rock, Paper, or Scissors");
+        let result = playRound(playerSelection, "rock");
         if (result == "Win!") {
             wins++;
-        }  else if (result = "Lose!") losses++;
+        }  else if (result == "Lose!") losses++;
         console.log(result);
     }
     if (wins > losses) return "Winner!";
     else if (losses > wins) return "Loser!";
-    //should never tie as games are 5 as of now, but just in case
     return "Tied!";
 }
 
